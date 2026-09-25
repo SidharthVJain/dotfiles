@@ -1,0 +1,13 @@
+[shell]
+polkit_agent = true
+
+[bar.main]
+end = [
+    "tray",
+    "notifications",
+    "clipboard",
+    "bluetooth",
+    "battery",
+    "session",
+    "network"
+]

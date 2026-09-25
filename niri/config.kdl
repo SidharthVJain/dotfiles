@@ -1,0 +1,57 @@
+include "./cfg/animation.kdl"
+include "./cfg/autostart.kdl"
+include "./cfg/keybinds.kdl"
+include "./cfg/input.kdl"
+include "./cfg/display.kdl"
+include "./cfg/layout.kdl"
+include "./cfg/rules.kdl"
+include "./cfg/misc.kdl"
+
+output "eDP-1" {
+    scale 1.25
+}
+
+input {
+    mouse {
+        accel-profile "flat"
+    }
+}
+
+layout {
+    gaps 8
+    focus-ring {
+	    width 0.5
+    }
+
+    border {
+	on
+        width 0.5
+    }
+    default-column-width { proportion 1.0; }
+}
+
+binds {
+    // Overview & Layout (Using Super+O for overview, or Super+Space)
+    Super+O { toggle-overview; }
+    Super+Space { spawn "walker"; }
+    Super+I { spawn "noctalia-settings"; }
+
+    // Window & Session Control
+    Alt+Q { close-window; }
+    Mod+Shift+E { quit; } // Niri standard quit action
+    Super+Shift+Return { center-window; }
+    Super+Return { maximize-column; }
+
+    // Navigation & Workspace Switching
+    Super+Up { focus-workspace-up; }
+    Super+Down { focus-workspace-down; }
+    Super+Left { focus-column-left; }
+    Super+Right { focus-column-right; }
+
+    // Sizing
+    Ctrl+Super+Left { set-column-width "-10%"; }
+    Ctrl+Super+Right { set-column-width "+10%"; }
+
+    // Apps & Utilities
+    Ctrl+Alt+T { spawn "alacritty"; }
+}
